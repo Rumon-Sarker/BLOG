@@ -1,0 +1,18 @@
+import { PrismaClient } from "@prisma/client";
+import { NextResponse } from "next/server";
+
+export async function GET(req, res) {
+  try {
+    let prisma = new PrismaClient();
+    let url = new URL(req.url);
+    let id = url.searchParams.get("id");
+
+    let result = await prisma.services.findMany({
+      where: { id: parseInt(id) },
+    });
+
+    return NextResponse.json({ status: "Success", data: result });
+  } catch (e) {
+    return NextResponse.json({ status: "Fail", data: e.toString() });
+  }
+}
