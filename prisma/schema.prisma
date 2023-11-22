@@ -12,29 +12,29 @@ datasource db {
 
 model user {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now()) @db.Timestamp(0)
-  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
-  name     String @db.VarChar(200)
-  email    String @unique @db.VarChar(100)
-  password String @db.VarChar(200)
+  name     String
+  email    String @unique
+  password String
 }
 
 model services {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now()) @db.Timestamp(0)
-  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
-  title String @db.VarChar(30000)
-  desc  String @db.VarChar(30000)
+  title String
+  desc  String @db.LongText
 }
 
 model blogs {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now()) @db.Timestamp(0)
-  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 
-  title  String @db.VarChar(30000)
-  desc   String @db.VarChar(30000)
-  imgCdn String @db.VarChar(30000)
+  title  String
+  desc   String @db.LongText
+  imgCdn String
 }
